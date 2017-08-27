@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Muca
  */
-@WebServlet(name = "ApresentacaoEquipe", urlPatterns = {"/home.html"})
+@WebServlet(name = "ApresentacaoEquipe", urlPatterns = {"/home.php"})
 public class ApresentacaoEquipe extends HttpServlet {
 
     /**
