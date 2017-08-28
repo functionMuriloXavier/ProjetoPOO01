@@ -40,7 +40,7 @@ public class JurosComposto extends HttpServlet {
             out.println("<title>Calculo Juros CompostoSevlet</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("</br><h1>Cálculo Juros Composto</h1></br></div>");
+            out.println("</br><h1>Cálculo de Juros Composto</h1></br></div>");
             float p = 0;
             float i = 0;
             int n = 0;
