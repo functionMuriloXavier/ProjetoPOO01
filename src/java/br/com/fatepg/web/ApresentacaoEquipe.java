@@ -51,7 +51,7 @@ public class ApresentacaoEquipe extends HttpServlet {
                     + "dois links para páginas distintas, uma efetuando o cálculo de juros "
                     + "simples, e outra calculando juros composto.</p>");
             out.println("<p> Os links estão disponíveis abaixo:</p>");
-            out.println("<a href='juros-simples.php'>Juros Simples</a>");
+            out.println("<a href='juros-simples.php'>Juros Simples</a><br/>");
             out.println("<a href='juros-composto.php'>Juros Composto</a>");
             out.println("</body>");
             out.println("</html>");
