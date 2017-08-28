@@ -42,7 +42,6 @@ public class JurosComposto extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("</br><h1>Cálculo Juros Composto</h1></br></div>");
-            DecimalFormat df = new DecimalFormat("0.00");
             float p = 0;
             float i = 0;
             int n = 0;
@@ -66,13 +65,13 @@ public class JurosComposto extends HttpServlet {
             }
             out.println("<div class='calculos'>");    
             out.println("<form>");
-            out.println("Digite seu capital:");
+            out.println("Digite o seu capital:");
             out.println("<br/><input type='text' name='p' value='" + p + "'/> <br/><br/>");
 
-            out.println("Digite sua taxa de juros(% a.m.):");
+            out.println("Digite a sua taxa de juros(% a.m.):");
             out.println("<br/><input type='text' name='i' value='" + i + "'/><br/><br/>");
 
-            out.println("Digite seu número de períodos(meses):");
+            out.println("Digite o número de parcelas/mês):");
             out.println("<br/><input type='text' name='n' value='" + n + "'/><br/>");
             out.println("<input type='submit' value='CALCULAR'/>");
 
@@ -84,14 +83,14 @@ public class JurosComposto extends HttpServlet {
             out.println("<td>JUROS</td>");
             out.println("</tr><br/>");
             out.println("<tr>");
-            out.println("<td>" +df.format(p) + "</td>");
-            out.println("<td>" + df.format((p * Math.pow(1 + (i / 100), n))-p) + "</td>");
+            out.println("<td>" +(p)+ "</td>");
+            out.println("<td>" +((p * Math.pow(1 + (i / 100), n))-p) + "</td>");
             out.println("</tr>");
             out.println("<br/>");
             out.println("<tr>");
             out.println("<td>VALOR MENSAL</td>");
             out.println("<td>CAPITAL</td>");
-            out.println("<td>JUROS</td>");
+            out.println("<td>JUROS AO MÊS</td>");
             out.println("<td>TOTAL</td>");
             aux = p;
             for (int j = 1; j <= n; j++) {
@@ -99,9 +98,9 @@ public class JurosComposto extends HttpServlet {
                 m = aux + jc;
                 out.println("<tr>");
                 out.println("<td>Mês: " + j + " = </td>");
-                out.println("<td>" + df.format(aux) + "</td>");
-                out.println("<td>" + df.format(jc) + "</td>");
-                out.println("<td>" + df.format(m) + "</td>");
+                out.println("<td>" + aux + "</td>");
+                out.println("<td>" + jc + "</td>");
+                out.println("<td>" + m + "</td>");
                 out.println("</tr>");
                 aux = m;
             }
