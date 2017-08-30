@@ -7,6 +7,7 @@ package br.com.fatepg.web;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.DecimalFormat;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -65,49 +66,52 @@ public class JurosComposto extends HttpServlet {
             out.println("<div class='calculos'>");    
             out.println("<form>");
             out.println("Digite o seu capital:");
-            out.println("<br/><input type='text' name='p' value='" + p + "'/> <br/><br/>");
+            out.println("<br/><input type='number' step='0.01' required name='p' value='" + p + "'/> <br/><br/>");
 
             out.println("Digite a sua taxa de juros(% a.m.):");
-            out.println("<br/><input type='text' name='i' value='" + i + "'/><br/><br/>");
+            out.println("<br/><input type='number' step='0.01' required name='i' value='" + i + "'/><br/><br/>");
 
             out.println("Digite o número de parcelas/mês):");
-            out.println("<br/><input type='text' name='n' value='" + n + "'/><br/>");
-            out.println("<input type='submit' value='CALCULAR'/>");
-
+            out.println("<br/><input type='number' step='1' name='n' value='" + n + "'/><br/>");
+            out.println("<input type='submit' value='CALCULAR'/><br/>");
+            out.println("<a href='home.php'>Voltar a página inicial</a>");
             out.println("</form><br/>");
-            out.println("<table>");
+            out.println("<table border='1'>");
 
             out.println("<tr>");
-            out.println("<td>CAPITAL  </td>");
-            out.println("<td>JUROS</td>");
+            out.println("<th>CAPITAL  </th>");
+            out.println("<th>JUROS</th>");
             out.println("</tr><br/>");
             out.println("<tr>");
-            out.println("<td>" +(p)+ "</td>");
-            out.println("<td>" +((p * Math.pow(1 + (i / 100), n))-p) + "</td>");
+            String capital = new DecimalFormat("0.00").format(p);
+            String juros = new DecimalFormat("0.00").format(p * Math.pow(1 + (i / 100), n));
+            out.println("<td>R$ " +capital+ "</td>");
+            out.println("<td>R$ " +juros+ "</td>");
             out.println("</tr>");
+            out.println("</table>");
             out.println("<br/>");
+            out.println("<table border='1'>");
             out.println("<tr>");
-            out.println("<td>VALOR MENSAL</td>");
-            out.println("<td>CAPITAL</td>");
-            out.println("<td>JUROS AO MÊS</td>");
-            out.println("<td>TOTAL</td>");
+            out.println("<th>VALOR MENSAL</th>");
+            out.println("<th>CAPITAL</th>");
+            out.println("<th>JUROS AO MÊS</th>");
+            out.println("<th>TOTAL</th>");
             aux = p;
             for (int j = 1; j <= n; j++) {
                 jc = (aux * (i / 100));
                 m = aux + jc;
                 out.println("<tr>");
                 out.println("<td>Mês: " + j + " = </td>");
-                out.println("<td>" + aux + "</td>");
-                out.println("<td>" + jc + "</td>");
-                out.println("<td>" + m + "</td>");
+                out.println("<td>R$ " + new DecimalFormat("0.00").format(aux) + "</td>");
+                out.println("<td>R$ " + new DecimalFormat("0.00").format(jc) + "</td>");
+                out.println("<td>R$ " + new DecimalFormat("0.00").format(m) + "</td>");
                 out.println("</tr>");
                 aux = m;
             }
             out.println("</td>");
             out.println("</tr>");
             out.println("</table>                                                                       <br/><br/><br/><br/>");
-            out.println("</div>");      
-            out.println("<a href='home.php'>Voltar a página inicial</a>");
+            out.println("</div>");
             out.println("</body>");
             out.println("</html>");
         }
