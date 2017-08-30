@@ -38,10 +38,15 @@ public class JurosComposto extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");           
-            out.println("<title>Calculo Juros CompostoSevlet</title>");
+            out.println("<title>Calculo Juros Composto</title>");
+            out.println("<meta charset='UTF-8' name='viewport' content='width=device-width, initial-scale=1.0'>");
+            out.println("<link rel='stylesheet' type='text/css' href='content/css/style.css'/>");
             out.println("</head>");
             out.println("<body>");
-            out.println("</br><h1>Cálculo de Juros Composto</h1></br></div>");
+            out.println("<section>");
+            out.println("<header>");
+            out.println("<h1>Calculando Juros Composto</h1>");
+            out.println("</header>");
             float p = 0;
             float i = 0;
             int n = 0;
@@ -63,18 +68,19 @@ public class JurosComposto extends HttpServlet {
             } catch (Exception ex) {
                 out.println();
             }
+            out.println("<article>");
+            out.println("<a href='home.php'>Voltar a página inicial</a>");
             out.println("<div class='calculos'>");    
             out.println("<form>");
             out.println("Digite o seu capital:");
-            out.println("<br/><input type='number' step='0.01' required name='p' value='" + p + "'/> <br/><br/>");
+            out.println("<br/><input type='number' step='0.01' required name='p'/><br/><br/>");
 
             out.println("Digite a sua taxa de juros(% a.m.):");
-            out.println("<br/><input type='number' step='0.01' required name='i' value='" + i + "'/><br/><br/>");
+            out.println("<br/><input type='number' step='0.01' required name='i' min='0' max='100'/><br/><br/>");
 
-            out.println("Digite o número de parcelas/mês):");
-            out.println("<br/><input type='number' step='1' name='n' value='" + n + "'/><br/>");
-            out.println("<input type='submit' value='CALCULAR'/><br/>");
-            out.println("<a href='home.php'>Voltar a página inicial</a>");
+            out.println("Digite o número de parcelas/mês:");
+            out.println("<br/><input type='number' required step='1' name='n'/><br/>");
+            out.println("<input type='submit' value='CALCULAR'/><br/>");            
             out.println("</form><br/>");
             out.println("<table border='1'>");
 
@@ -84,7 +90,7 @@ public class JurosComposto extends HttpServlet {
             out.println("</tr><br/>");
             out.println("<tr>");
             String capital = new DecimalFormat("0.00").format(p);
-            String juros = new DecimalFormat("0.00").format(p * Math.pow(1 + (i / 100), n));
+            String juros = new DecimalFormat("0.00").format((p * Math.pow(1 + (i / 100), n)-p));
             out.println("<td>R$ " +capital+ "</td>");
             out.println("<td>R$ " +juros+ "</td>");
             out.println("</tr>");
@@ -112,6 +118,8 @@ public class JurosComposto extends HttpServlet {
             out.println("</tr>");
             out.println("</table>                                                                       <br/><br/><br/><br/>");
             out.println("</div>");
+            out.println("</article>");
+            out.println("</section>");
             out.println("</body>");
             out.println("</html>");
         }

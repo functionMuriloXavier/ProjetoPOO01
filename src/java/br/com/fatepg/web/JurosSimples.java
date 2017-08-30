@@ -38,19 +38,25 @@ public class JurosSimples extends HttpServlet {
             out.println("<html>");
             out.println("<head>");
             out.println("<title>Cálculo Juros Simples</title>");            
+            out.println("<meta charset='UTF-8' name='viewport' content='width=device-width, initial-scale=1.0'>");
+            out.println("<link rel='stylesheet' type='text/css' href='content/css/style.css'/>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Cálculo de Juros Simples:</h1>");
+            out.println("<section>");
+            out.println("<header>");
+            out.println("<h1>Calculando Juros Simples</h1>");
+            out.println("</header>");
+            out.println("<article>");
+            out.println("<a href='home.php'>Voltar a página inicial</a>");
             out.println("<form method='get'>");
-            out.println("<label for='valorSemJuros'>Insira o capital:</label>");
+            out.println("<label for='valorSemJuros'>Insira o capital:</label><br/>");
             out.println("<input type='number' name='valorSemJuros' step='0.01' min='0.01' required maxlength='12'/><br/>");
-            out.println("<label for='jurosCapital'>Insira o juros (max. 100%):</label>");
+            out.println("<label for='jurosCapital'>Insira o juros (max. 100%):</label><br/>");
             out.println("<input type='number' name='jurosCapital' step='0.1' max='100' required/><br/>");
-            out.println("<label for='quantidadeMeses'>Insira o período de aplicação (meses, ex: 60):</label>");
+            out.println("<label for='quantidadeMeses'>Insira o período de aplicação (meses, ex: 60):</label><br/>");
             out.println("<input type='number' name='quantidadeMeses' step='1' min='1' required/><br/>");
             out.println("<input type='submit' value='Calcular'/><br/>");
-            out.println("</form>");  
-            out.println("<a href='home.php'>Voltar a página inicial</a>");
+            out.println("</form>");
             if(request.getParameter("valorSemJuros") != null){
                 try{
                     double capitalSemJuros = Double.parseDouble(request.getParameter("valorSemJuros"));
@@ -65,6 +71,8 @@ public class JurosSimples extends HttpServlet {
                     out.println("<h1>Dados encontrados inválidos</h1>");
                 }
             }
+            out.println("</article>");
+            out.println("</section>");
             out.println("</body>");
             out.println("</html>");
         }

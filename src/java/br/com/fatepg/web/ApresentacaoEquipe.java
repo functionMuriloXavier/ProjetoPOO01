@@ -33,28 +33,40 @@ public class ApresentacaoEquipe extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Apresentação da Equipe</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Apresentação da Equipe:</h1>");
-            out.println("<ul>");
-            out.println("<li>Diogo Atila Rodrigues de Carvalho</li>");
-            out.println("<li>Murilo Xavier Lucio</li>");
-            out.println("<li>Raul Gomes Pires Guedes da Silva (foragido)</li>");
-            out.println("<li>Tiago Aniceto do Carmo (foragido)</li>");
-            out.println("</ul>");
-            out.println("<h1>Sobre a aplicação:</h1>");
-            out.println("<p>Esta aplicação consiste em apresentar a equipe, e disponibilizar "
-                    + "dois links para páginas distintas, uma efetuando o cálculo de juros "
-                    + "simples, e outra calculando juros composto.</p>");
-            out.println("<p> Os links estão disponíveis abaixo:</p>");
-            out.println("<a href='juros-simples.php'>Juros Simples</a><br/>");
-            out.println("<a href='juros-composto.php'>Juros Composto</a>");
-            out.println("</body>");
-            out.println("</html>");
+            out.println("<!Doctype html>");
+out.println("<html>");
+out.println("<head>");
+out.println("<title>Apresentação da Equipe</title>");
+out.println("<meta charset='UTF-8' name='viewport' content='width=device-width, initial-scale=1.0'>");
+out.println("<link rel='stylesheet' type='text/css' href='content/css/style.css'/>");
+out.println("</head>");
+out.println("<body>");
+out.println("<section>");
+out.println("<header>");
+out.println("<h1>Projeto 01: Apresentação da Equipe</h1>");
+out.println("</header>");
+out.println("<article>");
+out.println("<h1>Sobre a aplicação:</h1>");
+out.println("<p id='header'>Esta aplicação consiste em apresentar a equipe, e disponibilizar dois links para páginas distintas, uma efetuando o cálculo de juros simples, e outra calculando juros composto.</p>");
+out.println("<a href='juros-simples.php'>Juros Simples</a> <a href='juros-composto.php'>Juros Composto</a>");
+out.println("</article>");
+out.println("<article>");
+out.println("<h1>Equipe:</h1>");
+out.println("<p>A equipe é composta por:</p>");
+out.println("<div>");
+out.println("<figure>");
+out.println("<img src='content/images/pp1.jpg' alt='Era para ter uma imagem aqui!'/>");
+out.println("<figcaption>Diogo Atila</figcaption>");
+out.println("</figure>");
+out.println("<figure>");
+out.println("<img src='content/images/pp.jpg' alt='Era para ter uma imagem aqui!'/>");
+out.println("<figcaption>Murilo Xavier</figcaption>");
+out.println("</figure>");
+out.println("</div>");
+out.println("</article>");
+out.println("</section>");
+out.println("</body>");
+out.println("</html>");
         }
     }
 
