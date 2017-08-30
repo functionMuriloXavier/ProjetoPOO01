@@ -52,7 +52,7 @@ public class JurosSimples extends HttpServlet {
             out.println("<label for='valorSemJuros'>Insira o capital:</label><br/>");
             out.println("<input type='number' name='valorSemJuros' step='0.01' min='0.01' required maxlength='12'/><br/>");
             out.println("<label for='jurosCapital'>Insira o juros (max. 100%):</label><br/>");
-            out.println("<input type='number' name='jurosCapital' step='0.1' max='100' required/><br/>");
+            out.println("<input type='number' name='jurosCapital' step='0.01' max='100' required/><br/>");
             out.println("<label for='quantidadeMeses'>Insira o período de aplicação (meses, ex: 60):</label><br/>");
             out.println("<input type='number' name='quantidadeMeses' step='1' min='1' required/><br/>");
             out.println("<input type='submit' value='Calcular'/><br/>");
